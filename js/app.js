@@ -1,21 +1,47 @@
 const sections=document.querySelectorAll('section');
-const navLi=document.querySelectorAll('nav .container ul li');
+const fragment=document.createDocumentFragment();
 
-window.addEventListener('scroll', ()=> {
-    let current = '';
-    sections.forEach(section => {
-       const sectionTop=section.offsetTop;
-       const sectionHeight=section.clientHeight;
-       console.log(sectionHeight);
-       if(pageYOffset>=(sectionTop-sectionHeight/3)){
-           current=section.getAttribute('id');
-       }
-    });
-   console.log(current);
-navLi.forEach(li => {
-    li.classList.remove('active');
-    if(li.classList.contains(current)) {
-        li.classList.add('active'); 
+function createNav(id, name){
+    const itemHTML=`<a class="menu__link" data-id="${id}">${name}</a>`;
+    return itemHTML;
+}
+
+// build the nav
+function buildNavigation() {
+    for(let i=0;i<sections.length; i++) {
+        const newMenuItem=document.createElement('li');
+        const sectionName=sections[i].getAttribute('data-nav');
+        const sectionId=sections[i].getAttribute('id');
+        newMenuItem.innerHTML=createNav(sectionId, sectionName);
+        fragment.appendChild(newMenuItem);
+    //    console.log(sectionName)
     }
+   
+    const navBarList=document.getElementById('navbar__list');
+    navBarList.appendChild(fragment);
+    
+}
+
+// Scroll to anchor ID using scrollTO event
+function scrollToElement(event){
+    if(event.target.nodeName === 'A'){
+        const sectionId = event.target.getAttribute('data-id');
+        const section = document.getElementById(sectionId);
+        section.scrollIntoView({behavior: "smooth"});
+    }
+}
+document.addEventListener('scroll', function(){
+    setActiveClass();
 });
+const navBarList = document.getElementById('navbar__list');
+
+navBarList.addEventListener('click', function(event){
+    scrollToElement(event);
+    
 });
+// build menu
+buildNavigation();
+
+
+
+

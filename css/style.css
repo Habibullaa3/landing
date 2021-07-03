@@ -59,8 +59,10 @@ nav .container ul li a{
   padding: 10px 20px;
   color: black;
   text-decoration: none;
+  text-transform: capitalize;
+  cursor: pointer;
 }
-nav .container  ul li.active {
+nav .container ul li .active {
  background-color: crimson;
  transition: 0.3 ease background-color;
 }
@@ -225,4 +227,14 @@ nav .container ul li.active a {
   text-decoration: none;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: white;
+}
+
+
+/*ddddddddddddddddddddddddddddddddddddddddddddd */
+.menu__link {
+  display: block;
+  padding: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
 }
