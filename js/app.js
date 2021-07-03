@@ -30,11 +30,8 @@ function scrollToElement(event){
         section.scrollIntoView({behavior: "smooth"});
     }
 }
-document.addEventListener('scroll', function(){
-    setActiveClass();
-});
-const navBarList = document.getElementById('navbar__list');
 
+const navBarList = document.getElementById('navbar__list');
 navBarList.addEventListener('click', function(event){
     scrollToElement(event);
     
