@@ -62,7 +62,9 @@ nav .container ul li a{
   text-transform: capitalize;
   cursor: pointer;
 }
-nav .container ul li .active {
+
+
+nav .container ul li.active {
  background-color: crimson;
  transition: 0.3 ease background-color;
 }
@@ -230,11 +232,3 @@ nav .container ul li.active a {
 }
 
 
-/*ddddddddddddddddddddddddddddddddddddddddddddd */
-.menu__link {
-  display: block;
-  padding: 1em;
-  font-weight: bold;
-  text-decoration: none;
-  color: #000;
-}
