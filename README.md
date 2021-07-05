@@ -1,4 +1,5 @@
 This is the second project for Udacity Front End Developer Nanodegree
+
 The Project has starter code. Lots of my code is Javascript code in app.js file and some modifications are made in index.html file.
 
 - Navigation is built dynamically as an unordered list
